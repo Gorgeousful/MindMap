@@ -1,0 +1,238 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.5 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.5">
+  <diagram name="第 1 页" id="--jfVSBHUZ_LpbmSWNyq">
+    <mxGraphModel dx="4085" dy="2582" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-11" value="OfflineRL" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="-640" y="-150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-12" value="OnlineRL+OfflineRL" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="-760" y="-150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-21" value="&lt;b&gt;iRe-VLA&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-880" y="-50" width="320" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-22" value="①SFT和onlineRL交替进行；使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;最大折扣奖励RL&lt;/font&gt;&lt;/b&gt;更新" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-21" vertex="1">
+          <mxGeometry y="30" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-23" value="②交替过程中成功轨迹并入原有数据集" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-21" vertex="1">
+          <mxGeometry y="70" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-24" value="③RL阶段仅调整action head，冻结VLM backbone" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-21" vertex="1">
+          <mxGeometry y="100" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-60" value="④action模型使用VLM+离散tokenizer解码" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-21" vertex="1">
+          <mxGeometry y="130" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-30" value="&lt;b&gt;RL4VLA&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-880" y="110" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-31" value="①&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;PPO&lt;/font&gt;&lt;/b&gt;比GRPO和DPO好，重点研究PPO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-30" vertex="1">
+          <mxGeometry y="30" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-32" value="②crtic和actor共享backbone效果好；PPO mini epoch即可；critic需要warm-up" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-30" vertex="1">
+          <mxGeometry y="60" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-33" value="③从Vision/Semantics/Execution三个方面分析RL效果" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-30" vertex="1">
+          <mxGeometry y="90" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-61" value="④action模型使用OpenVLA" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-30" vertex="1">
+          <mxGeometry y="120" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-36" value="&lt;b&gt;GRAPE&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-560" y="280" width="320" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-38" value="①使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;DPO&lt;/font&gt;&lt;/b&gt;进行traj-level更新" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-36" vertex="1">
+          <mxGeometry y="30" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-40" value="②计算出的总奖励仅用于轨迹优劣排序（因为DPO不需要奖励）" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-36" vertex="1">
+          <mxGeometry y="50" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-41" value="③总奖励&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;\(R_{CGPG}=R_{self}+R_{ext}+I_{success}\)&amp;nbsp;&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1.\(R_{ext}\)为外部奖励，通过temporal-stage分解，和spatial-temporal关键点检测，结合关键点间距离和Alignment偏好计算得出&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;2.\(I_{success}\)为轨迹成功与否奖励&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;3.\(R_{self}\)为policy熵奖励，鼓励探索&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-36" vertex="1">
+          <mxGeometry y="100" width="320" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-59" value="④action模型使用OpenVLA" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-36" vertex="1">
+          <mxGeometry y="210" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-43" value="OnlineRL" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-880" y="-150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-44" value="&lt;b&gt;VLA-R1&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="420" y="-50" width="340" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-46" value="①VLA输出的是&amp;lt;think&amp;gt;和&amp;lt;output&amp;gt;，&lt;div&gt;即Reasoning过程和2D Trajectory或Affordance Box，&lt;/div&gt;&lt;div&gt;后通过IK和深度反推出3D的关节角度&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-44" vertex="1">
+          <mxGeometry y="30" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-45" value="②使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;GRPO&lt;/font&gt;&lt;/b&gt;更新，考虑KL散度；更新考虑单帧输出，而不是完整轨迹（单帧已经规划好了整个动作）" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-44" vertex="1">
+          <mxGeometry y="80" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-47" value="③奖励为\(R_{RLVR}=R_{aff}+R_{traj}+R_{format}\)&lt;div&gt;1. \(R_{aff}\)为aff box与GT的GIoU&lt;/div&gt;&lt;div&gt;2. \(R_{traj}\)为traj与GT的ALAF&lt;/div&gt;&lt;div&gt;3.\(R_{format}\)判断输出格式是否满足&amp;lt;think&amp;gt; &amp;lt;output&amp;gt;组合的形式&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-44" vertex="1">
+          <mxGeometry y="110" width="340" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-57" value="④action模型是普通的VLM，输出离散格式化的token" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-44" vertex="1">
+          <mxGeometry y="180" width="340" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-48" value="&lt;b&gt;VLA-RFT&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="760" y="-50" width="340" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-49" value="①使用一个World Model预测状态转移（iVideoGPT），&lt;div&gt;模型输入\(o_{&amp;lt;t}\)和\(a_{&amp;lt;t}\)，输出&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;\(o_{t}\)，使用最大对数似然训练&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-48" vertex="1">
+          <mxGeometry y="30" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-50" value="②使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;GRPO&lt;/font&gt;&lt;/b&gt;更新，总损失还考虑了模仿学习\(L_{MSE}\)流匹配噪声预测和熵鼓励探索\(H(\pi)\)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-48" vertex="1">
+          <mxGeometry y="70" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-62" value="③奖励\(R\)通过WM预测的图像与GT action通过WM预测的图像间的\(R_{L_1}\)和\(R_{LPIPS}\)&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;感知损失计算&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-48" vertex="1">
+          <mxGeometry y="110" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-56" value="⑤action模型是类似于pi0的VLM+Flow Mathcing的模型" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-48" vertex="1">
+          <mxGeometry y="150" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-52" value="&lt;b&gt;VLAC&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-560" y="-50" width="320" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-53" value="①设计了一个VLAC critic网络，来预测从\(i\)起的\(\Delta t\)时间占剩余任务的执行进度&lt;div&gt;\(c_{i,i+\Delta t}=VLAC(o_i,o_{i+\Delta t};l_{task})\)&lt;br&gt;同时该网络根据prompt的不同，输出结束标志&lt;/div&gt;&lt;div&gt;\(l_{done}=VLAC(o_{i};l_{task})\)&lt;br&gt;该critic的训练无需action！&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-52" vertex="1">
+          <mxGeometry y="30" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-54" value="②使用了4个trick来训练critic; 还引入了3个HIL的trick" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-52" vertex="1">
+          <mxGeometry y="120" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-55" value="③使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;PPO&lt;/font&gt;&lt;/b&gt;更新，\(A\)用GAE计算，TD算子中，价值函数\(V\)将action模型last hidden state输入到线性头输出得到；&lt;br&gt;总损失还考虑了熵正则化，鼓励探索。" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-52" vertex="1">
+          <mxGeometry y="140" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-64" value="④使用了一个VOC指标来评估critic的进度预测，其可用于区别sccess和failure，&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;在成功的任务执行中，进度通常随时间单调递增，因此预测的进度值应与时间顺序高度一致，VOC高分。而在失败的任务执行中，进度可能出现波动、倒退或中断，预测值与时间顺序的相关性降低，VOC较低&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-52" vertex="1">
+          <mxGeometry y="190" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-65" value="⑤action和critic模型的backbone都是InternVL，分别为2B和8B，动作输出是通过template直接让模型回答数值token" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-52" vertex="1">
+          <mxGeometry y="280" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-66" value="&lt;b&gt;RL-100&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="-240" y="-50" width="320" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-67" value="①采用IL-OfflineRL交替迭代+最后OnlineRL微调的方式；交替过程中OfflineRL新策略rollout的轨迹数据并入原有数据集。（文中没说准入标准）" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-66" vertex="1">
+          <mxGeometry y="30" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-70" value="②使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;PPO&lt;/font&gt;&lt;/b&gt;统一更新OnlineRL和OfflineRL" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-66" vertex="1">
+          <mxGeometry y="80" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-68" value="③OfflineRL阶段用IQL训练了\(Q\)和\(V\)&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;，并利用最大对数似然训练了状态转移模型\(T\)，并额外利用AM-Q机制给策略的迭代更新设置了一道gate。此时\(A=Q-V\)&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-66" vertex="1">
+          <mxGeometry y="100" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-69" value="④OnlineRL阶段的\(A\)用GAE计算，且PPO中额外增加了评估模型\(V\)的更新" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-66" vertex="1">
+          <mxGeometry y="150" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-71" value="⑤网络是DP模型，强化学习的更新深入到了扩散级的MDP中，相当两层MDP，外层ENV，内层Dffusion" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-66" vertex="1">
+          <mxGeometry y="190" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-72" value="⑥为提升推理效率，蒸馏训练了一个consistency model（这里类似于普通蒸馏，每一去噪步学生模仿老师，而非CM），因而RL阶段的所有损失上增加了一个的蒸馏损失\(L_{CD}\)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-66" vertex="1">
+          <mxGeometry y="230" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-73" value="⑥整个模型的架构是基于Uni-O4展开的" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-66" vertex="1">
+          <mxGeometry y="290" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-74" value="&lt;b&gt;\(\pi\)-RL&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-880" y="260" width="320" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-75" value="①将FlowMatching过程建模为MDP过程，以计算策略概率" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-74" vertex="1">
+          <mxGeometry y="30" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-77" value="②引入了Flow-Noise和Flow-SDE两种范式，前者在去噪过程中同步注入预测噪声，并将整个过程考虑为ENV层的MDP，去噪的内层视为一整块；后者通过交替的ODE封装和vector field reverse SDE（仅单步），将整个过程视作两层的MDP(ENV外，FM内)，使得去噪中间状态也是整体状态的一员" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-74" vertex="1">
+          <mxGeometry y="60" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vRQE86J2hUBOfpKy5OBB-2" value="③FM是ODE的，所以Flow-Noise通过显式的噪声预测网络加入噪声；而Flow-SDE通过概念平移，建立了\(f(x,t)\)与\(v(x,t)\)与\(\nabla\log p_t(x)\)的联系，从而使用了向量场版本的reverse SDE，也可以理解为\(f(x,t)=v(x,t)\)的Langevin MCMC" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-74" vertex="1">
+          <mxGeometry y="150" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-76" value="③使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;PPO&lt;/font&gt;&lt;/b&gt;策略，使用GAE估计\(A\)，而奖励\(R\)通过稀疏奖励进行广播；价值\(V\)根据\(\pi_0\)和\(\pi_{0.5}\)的不同结构由加入到网络不同位置的critic头预测" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-74" vertex="1">
+          <mxGeometry y="230" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-78" value="&lt;b&gt;SimpleVLA&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-880" y="540" width="320" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-79" value="①使用&lt;b&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;GRPO&lt;/font&gt;&lt;/b&gt;进行更新，无KL项和熵正则化项" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-78" vertex="1">
+          <mxGeometry y="30" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-80" value="②0-1完成奖励\(R\)广播到每一步" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-78" vertex="1">
+          <mxGeometry y="70" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-81" value="③使用了3个trick鼓励exploration，分别是：&lt;div&gt;1.DynamicSampling每次rollout的G条轨迹不能全成功/失败&lt;/div&gt;&lt;div&gt;2.将PPO clip的范围从0.8~1.2调整到0.8~1.28&lt;/div&gt;&lt;div&gt;3.将rollout温度从1.0提高到1.6&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-78" vertex="1">
+          <mxGeometry y="100" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-82" value="④出现了&quot;pushcut&quot;现象，模型出现了新的行为" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-78" vertex="1">
+          <mxGeometry y="180" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-83" value="⑤actor模型使用定制的OpenVLA-OFT" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-78" vertex="1">
+          <mxGeometry y="220" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-84" value="&lt;b&gt;VLA-RL&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-560" y="540" width="320" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-85" value="①使用&lt;b style=&quot;color: rgb(204, 0, 0);&quot;&gt;PPO&lt;/b&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;进行更新，\(A\)使用GAE计算&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-84" vertex="1">
+          <mxGeometry y="30" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-92" value="②伪奖励标注：基于夹爪开合状态将轨迹分割，在每段内，将末端执行器速度接近0的帧标记为关键帧，而对于使得关键帧出现的动作，标记为\(v^{rprm}\)，并赋予正的伪奖励" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-84" vertex="1">
+          <mxGeometry y="50" width="320" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-93" value="②将奖励模型\(R\)的训练过程建模为下一token预测问题；&lt;div&gt;训练时将下一个动作是好动作的概率最大化，这样当推理时，模型输入状态后预测的动作概率就是下一个动作是好动作的概率，将此与伪奖励加权，得到\(r^{rprm}\)。将&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;\(r^{rprm}\)与稀疏的成功奖励&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;\(r\)相加得到总奖励&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-84" vertex="1">
+          <mxGeometry y="100" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-91" value="③对critic模型启用了warmup策略" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-84" vertex="1">
+          <mxGeometry y="180" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-94" value="④根据任务成功率动态的采样数据，使得50%成功率左右的任务采样率最高" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-84" vertex="1">
+          <mxGeometry y="200" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-90" value="⑤使用OpenVLA作为actor model&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-84" vertex="1">
+          <mxGeometry y="240" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-95" value="&lt;b&gt;ConRFT&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="80" y="-50" width="340" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-96" value="①使用&lt;font&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;color: rgb(204, 0, 0);&quot;&gt;Q Preference&lt;/font&gt;&lt;/b&gt;(类似)&lt;/font&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;进行更新&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-95" vertex="1">
+          <mxGeometry y="30" width="340" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-102" value="②OfflineRL阶段，critic参数\(\theta\)通过Cal-QL更新，consistency-based动作头的参数\(\psi\)通过CPQL更新（含BC和Q Preference）；这里CPQL中，利用Q Preference使得动作头更新不仅依据BC，还要依据RL的结果" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-95" vertex="1">
+          <mxGeometry y="50" width="340" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-103" value="③OnlineRL阶段，critic参数\(\theta\)通过StandardQL更新，consistency-based动作头的参数\(\psi\)通过CPQL更新（与OfflineRL的表示是统一的）" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-95" vertex="1">
+          <mxGeometry y="120" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-104" value="④在Online阶段，batch数据一半来自离线数据\(\mathcal D\)，一半来自在线交互rebuffer \(\mathcal R\)；在Online阶段，CPQL更新BC的权重\(\beta\)降低，maxQ的权重\(\eta\)提高" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-95" vertex="1">
+          <mxGeometry y="180" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-105" value="⑤action model使用Octo-small另加一个consistency动作头，&lt;br&gt;但是训练时用的是BC，而没有使用到self-consistency" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-95" vertex="1">
+          <mxGeometry y="230" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9t0-M0ZgQHQ85r0VDfDj-106" value="⑥在动作更新中加入BC项，可以起到稳定训练的作用，这对real-world RL的安全比较重要" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="9t0-M0ZgQHQ85r0VDfDj-95" vertex="1">
+          <mxGeometry y="270" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-2" value="&lt;b&gt;设想&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="150" y="540" width="360" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-3" value="①Offline和Online统一使用GRPO更新。&lt;br&gt;总体流程：&lt;div&gt;1. IL和OfflineRL交替&lt;/div&gt;&lt;div&gt;2. 仿真Online&lt;/div&gt;&lt;div&gt;3. 现实Online&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="30" width="360" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-9" value="②利用离线轨迹训练一个WM，预测状态转移" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="110" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-10" value="③奖励函数\(R\)使用稀疏成功奖励+密集VLAC进度奖励" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="130" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-11" value="④Offline阶段，利用WM rollout和奖励函数更新" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="150" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-13" value="⑤IL与Offline交替进行，IL使用BC损失，Offline成功轨迹并入静态数据集" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="170" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-14" value="⑥Online阶段，利用（仿真/现实）环境交互和奖励函数更新" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="200" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-12" value="⑦仿真Online的GRPO不加KL，现实Online加入KL" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="220" width="360" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Uk5Kmv2vtUy3jn5jH4Qv-15" value="⑧VLA使用pi系列，采样使用ODE-SDE的规则（或noise injection）" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Uk5Kmv2vtUy3jn5jH4Qv-2">
+          <mxGeometry y="240" width="360" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
